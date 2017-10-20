@@ -1,15 +1,13 @@
 ;control-canvas.rkt
 ;在画布上绘图
 
-(require "model-ks-simple.rkt")
+(require "model-simple.rkt")
 
 ;取得绘画设备：
-(define dc (send ks-canvas get-dc))
+(define dc (send canvas get-dc))
 
-(define draw-demo
+(define draw-artascope-commond
   (lambda ()
-    (send dc draw-rectangle 0 0 800 600)))
-
-(define draw-ks
-  (lambda () (draw dc)))
+    ;(send dc draw-line 10 10 500 500)
+    (draw-artascope dc)))
 

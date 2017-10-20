@@ -10,6 +10,6 @@
        [border 5]))
 
 ;定义画布：
-(define canvas
+(define ks-canvas
   (new canvas%
        [parent panel-canvas]))
