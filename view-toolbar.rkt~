@@ -15,12 +15,6 @@
        [label "画图"]
        [callback draw]))
 
-(define button-clear
-  (new button%
-       [parent toolbar-general]
-       [label "清空画布"]
-       [callback clear]))
-
 (define button-help
   (new button%
        [parent toolbar-general]

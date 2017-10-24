@@ -1,8 +1,6 @@
 ;control-canvas.rkt
 ;在画布上绘图
 
-(require "model-simple.rkt")
-
 ;取得绘画设备：
 (define dc (send canvas get-dc))
 
@@ -13,6 +11,11 @@
 ;绘制万花筒命令：
 (define draw-artascope-command
   (lambda ()
+    (set-draw-parameter)
     (set-f-center canvas-size)
     (draw-artascope dc)))
+
+;清空画布：
+(define (clear-canvas)
+  (send canvas refresh))
 

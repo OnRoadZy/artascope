@@ -4,7 +4,11 @@
 (module model-simple racket
 
   (provide draw-artascope
-           set-f-center)
+           set-f-center
+           get-af0 set-af0 get-ap0 set-ap0
+           get-rf set-rf get-rw set-rw get-rp set-rp
+           get-step-aw set-step-aw
+           get-start-af set-start-af  get-end-af set-end-af)
 
   ;定义全局参数：
   (define f-center (cons 300 300))
@@ -14,8 +18,26 @@
   (define rw 210)
   (define rp 100)
   (define step-aw 30)
-  (define end-af 7720)
   (define start-af 0)
+  (define end-af 7720)
+
+  ;设置/取得绘图全局参数：
+  (define (get-af0) af0)
+  (define (set-af0 a) (set! af0 a))
+  (define (get-ap0) ap0)
+  (define (set-ap0 a) (set! ap0 a))
+  (define (get-rf) rf)
+  (define (set-rf r) (set! rf r))
+  (define (get-rw) rw)
+  (define (set-rw r) (set! rw r))
+  (define (get-rp) rp)
+  (define (set-rp r) (set! rp r))
+  (define (get-step-aw) step-aw)
+  (define (set-step-aw a) (set! step-aw a))
+  (define (get-start-af) start-af)
+  (define (set-start-af a) (set! start-af a))
+  (define (get-end-af) end-af)
+  (define (set-end-af a) (set! end-af a))
 
   ;取得绘图点的X、Y坐标：
   (define xp

@@ -1,9 +1,7 @@
 #lang racket
 (require racket/gui)
 (require racket/draw)
-
-(struct little-circle (r))
-(struct big-circle (r))
+(require "model-simple.rkt")
 
 (include "control-command.rkt")
 
@@ -17,6 +15,7 @@
 
 (include "view-menubar.rkt")
 (include "view-main.rkt")
+(include "control-setting.rkt")
 (include "control-canvas.rkt")
  
 (send main-frame show #t)

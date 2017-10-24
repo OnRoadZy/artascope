@@ -16,15 +16,11 @@
        [parent menu-prog]
        [callback draw]))
 
-(define menu-item-clear
+(define menu-item-setting
   (new menu-item%
-       [label "清空画布"]
+       [label "设置"]
        [parent menu-prog]
-       [callback clear]))
-
-(define separator-menu-item-1
-  (new separator-menu-item%
-       [parent menu-prog]))
+       [callback setting]))
 
 (define menu-item-exit
   (new menu-item%

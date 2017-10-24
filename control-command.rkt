@@ -4,8 +4,8 @@
 (define (draw menu-item event)
   (draw-artascope-command))
 
-(define (setting menu-item event)
-  #t)
+(define (clear menu-item event)
+  (clear-canvas))
 
 (define (help menu-item event)
   (message-box "关于万花筒程序"
