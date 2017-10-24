@@ -6,8 +6,13 @@
 ;取得绘画设备：
 (define dc (send canvas get-dc))
 
-(define draw-artascope-commond
+;取得画布尺寸：
+(define (canvas-size)
+  (send canvas get-client-size))
+
+;绘制万花筒命令：
+(define draw-artascope-command
   (lambda ()
-    ;(send dc draw-line 10 10 500 500)
+    (set-f-center canvas-size)
     (draw-artascope dc)))
 

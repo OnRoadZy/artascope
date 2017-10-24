@@ -3,17 +3,18 @@
 
 (module model-simple racket
 
-  (provide draw-artascope)
+  (provide draw-artascope
+           set-f-center)
 
   ;定义全局参数：
   (define f-center (cons 300 300))
   (define af0 30)
   (define ap0 20)
   (define rf 300)
-  (define rw 80)
-  (define rp 70)
-  (define step-aw 5)
-  (define end-af 1720)
+  (define rw 210)
+  (define rp 100)
+  (define step-aw 30)
+  (define end-af 7720)
   (define start-af 0)
 
   ;取得绘图点的X、Y坐标：
@@ -63,5 +64,12 @@
           (let ([p2 (get-p dlt-aw)])
             (begin
               (send dc draw-lines (list p1 p2))
-              (set! p1 p2))))))))
+              (set! p1 p2)))))))
+
+  ;设置画布中心点为轨道圆心点：
+  ;函数参数为函数，该函数参数取得画布的尺寸。
+  (define (set-f-center canvas-size)
+    (let-values ([(fx fy) (canvas-size)])
+      (set! f-center (cons (/ fx 2) (/ fy 2)))))
+  )
  

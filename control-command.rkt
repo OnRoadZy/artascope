@@ -2,7 +2,7 @@
 ;命令执行程序===========================
 
 (define (draw menu-item event)
-  (draw-artascope-commond))
+  (draw-artascope-command))
 
 (define (setting menu-item event)
   #t)
