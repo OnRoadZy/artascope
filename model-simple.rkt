@@ -68,10 +68,9 @@
   
 
   ;组合坐标值为点值：
-  (define get-p
-    (lambda (dlt-aw)
-      (cons (xp (xw (af (dlt-af dlt-aw))) (ap dlt-aw))
-            (yp (yw (af (dlt-af dlt-aw))) (ap dlt-aw)))))
+  (define (get-p dlt-aw)
+    (cons (xp (xw (af (dlt-af dlt-aw))) (ap dlt-aw))
+          (yp (yw (af (dlt-af dlt-aw))) (ap dlt-aw))))
 
   (define cur-aw
     (lambda (af)
@@ -80,7 +79,7 @@
   ;绘制万花筒：
   (define draw-artascope
     (lambda (dc)
-      (let ([p1 (get-p 0)])
+      (let ([p1 (get-p af0)])
         (do ([dlt-aw (cur-aw (+ af0 start-af)) (+ dlt-aw step-aw)])
           ((> dlt-aw (cur-aw (+ af0 end-af))) "结束画图。")
           (let ([p2 (get-p dlt-aw)])

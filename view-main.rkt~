@@ -1,7 +1,7 @@
 ;view-mail.rkt
 ;定义主界面视图：
 
-;;;定义主界面：================================================================
+;;;定义主界面：===============================
 (define main-frame
   (new frame%
        [label "万花筒(Artascope)"]
@@ -9,78 +9,32 @@
        [height 600]
        [border 5]))
 
-;;;分割主界面：=================================================================
-;定义总面板：
-(define panel-all
-  (new vertical-panel%
-       [parent main-frame]
-       [alignment '(left top)]
-       [stretchable-width #t]
-       [stretchable-height #t]))
-
-;定义工具栏面板：
-(define toolbars
-  (new horizontal-panel%
-       [parent panel-all]
-       [alignment '(left top)]
-       [stretchable-width #f]
-       [stretchable-height #f]
-       [border 2]))
-
-;定义工作区：
-(define panel-work
-  (new horizontal-panel%
-       [parent panel-all]
-       [alignment '(center center)]))
-
-;定义画布面板：
-(define panel-canvas
-  (new vertical-panel%
-       [parent panel-work]
-       [style '(border)]
-       [alignment '(left top)]
-       [border 5]))
-
-;定义绘图参数设置面板
-(define panel-setting
-  (new vertical-panel%
-       [parent panel-work]
-       [style '(border auto-vscroll)]
-       [alignment '(right top)]
-       [min-width 200]
-       [stretchable-width #f]))
-
-;;;定义画布：==================================================================
-(define canvas
-  (new canvas%
-       [parent panel-canvas]))
-
-;;;引入视图控制程序：===========================================================
-(include "control-main.rkt")
-
-;;;定义菜单====================================================================
+;;;定义菜单===================================
 (define menubar
   (new menu-bar%
        [parent main-frame]))
 
-;;程序菜单：
 (define menu-prog
   (new menu%
        [label "程序"]
        [parent menubar]))
+
 (define menu-item-draw
   (new menu-item%
        [label "画图"]
        [parent menu-prog]
        [callback draw]))
+
 (define menu-item-clear
   (new menu-item%
        [label "清空画布"]
        [parent menu-prog]
        [callback clear]))
+
 (define separator-menu-item-1
   (new separator-menu-item%
        [parent menu-prog]))
+
 (define menu-item-exit
   (new menu-item%
        [label "退出"]
@@ -89,23 +43,40 @@
         (lambda (item event)
           (send main-frame on-exit))]))
 
-;;帮助菜单：
 (define menu-help
   (new menu%
        [label "帮助"]
        [parent menubar]))
+
 (define menu-item-help
   (new menu-item%
        [label "使用指南"]
        [parent menu-help]
        [callback help]))
+
 (define menu-item-about
   (new menu-item%
        [label "关于"]
        [parent menu-help]
        [callback help]))
 
-;;;定义工具栏按钮：=================================================================
+;;;定义总面板：=================================
+(define panel-all
+  (new vertical-panel%
+       [parent main-frame]
+       [alignment '(left top)]
+       [stretchable-width #t]
+       [stretchable-height #t]))
+
+;;;定义工具栏：=================================
+(define toolbars
+  (new horizontal-panel%
+       [parent panel-all]
+       [alignment '(left top)]
+       [stretchable-width #f]
+       [stretchable-height #f]
+       [border 2]))
+
 (define toolbar-general
   (new horizontal-panel%
        [parent toolbars]
@@ -131,7 +102,21 @@
        [label "关于此程序"]
        [callback help]))
 
-;;;定义绘图参数设置控件：=======================================================
+;;;定义工作区：==================================
+(define panel-work
+  (new horizontal-panel%
+       [parent panel-all]
+       [alignment '(center center)]))
+
+;;;定义绘图参数设置面板============================
+(define panel-setting
+  (new vertical-panel%
+       [parent panel-work]
+       [style '(border auto-vscroll)]
+       [alignment '(right top)]
+       [min-width 200]
+       [stretchable-width #f]))
+
 ;轨道参数：
 (define group-box-panel-frame
   (new group-box-panel%
@@ -185,3 +170,15 @@
        (parent group-box-panel-wheel)
        (label "滚轮角步距")
        (init-value (number->string (get-step-aw)))))
+
+;;;定义画布面板：======================================
+(define panel-canvas
+  (new vertical-panel%
+       [parent panel-work]
+       [style '(border)]
+       [alignment '(left top)]
+       [border 5]))
+;定义画布：
+(define canvas
+  (new canvas%
+       [parent panel-canvas]))

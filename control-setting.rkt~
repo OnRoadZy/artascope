@@ -1,4 +1,0 @@
-;control-view-setting.rkt
-
-(define (set-draw-parameter)
-  (
