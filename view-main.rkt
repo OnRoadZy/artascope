@@ -39,15 +39,15 @@
        [parent panel-work]
        [style '(border)]
        [alignment '(left top)]
-       [border 5]))
+       [border 10]))
 
 ;定义绘图参数设置面板
 (define panel-setting
   (new vertical-panel%
        [parent panel-work]
-       [style '(border auto-vscroll)]
        [alignment '(right top)]
-       [min-width 200]
+       [border 5]
+       [min-width 180]
        [stretchable-width #f]))
 
 ;;;定义画布：==================================================================
@@ -137,26 +137,39 @@
   (new group-box-panel%
        (parent panel-setting)
        (label "轨道参数")
+       (alignment (list 'right 'top))
        (stretchable-height #f)))
 (define text-field-af0
   (new text-field%
        (parent group-box-panel-frame)
        (label "轨道圆起始角")
+       (horiz-margin 5)
+       (min-width 165)
+       (stretchable-width #f) 
        (init-value (number->string (get-af0)))))
 (define text-field-rf
   (new text-field%
        (parent group-box-panel-frame)
        (label "轨道圆半径")
+       (horiz-margin 5)
+       (min-width 150)
+       (stretchable-width #f) 
        (init-value (number->string (get-rf)))))
 (define text-field-start-af
   (new text-field%
        (parent group-box-panel-frame)
        (label "轨道起始角")
+       (horiz-margin 5)
+       (min-width 150)
+       (stretchable-width #f) 
        (init-value (number->string (get-start-af)))))
 (define text-field-end-af
   (new text-field%
        (parent group-box-panel-frame)
        (label "轨道结束角")
+       (horiz-margin 5)
+       (min-width 150)
+       (stretchable-width #f) 
        (init-value (number->string (get-end-af)))))
 
 ;滚轮参数：
@@ -164,24 +177,37 @@
   (new group-box-panel%
        (parent panel-setting)
        (label "滚轮参数")
+       (alignment (list 'right 'top))
        (stretchable-height #f)))
 (define text-field-ap0
   (new text-field%
        (parent group-box-panel-wheel)
        (label "绘制点起始角")
+       (horiz-margin 5)
+       (min-width 165)
+       (stretchable-width #f) 
        (init-value (number->string (get-ap0)))))
 (define text-field-rw
   (new text-field%
        (parent group-box-panel-wheel)
        (label "滚轮半径")
+       (horiz-margin 5)
+       (min-width 135)
+       (stretchable-width #f) 
        (init-value (number->string (get-rw)))))
 (define text-field-rp
   (new text-field%
        (parent group-box-panel-wheel)
        (label "绘制点半径")
+       (horiz-margin 5)
+       (min-width 150)
+       (stretchable-width #f) 
        (init-value (number->string (get-rp)))))
 (define text-field-step-aw
   (new text-field%
        (parent group-box-panel-wheel)
        (label "滚轮角步距")
+       (horiz-margin 5)
+       (min-width 150)
+       (stretchable-width #f) 
        (init-value (number->string (get-step-aw)))))
