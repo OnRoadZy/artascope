@@ -144,7 +144,8 @@
        (parent group-box-panel-frame)
        (label "轨道圆起始角")
        (horiz-margin 5)
-       (min-width 165)
+       (style '(single horizontal-label ))
+       (min-width 162)
        (stretchable-width #f) 
        (init-value (number->string (get-af0)))))
 (define text-field-rf
@@ -152,6 +153,7 @@
        (parent group-box-panel-frame)
        (label "轨道圆半径")
        (horiz-margin 5)
+       (style '(single horizontal-label))
        (min-width 150)
        (stretchable-width #f) 
        (init-value (number->string (get-rf)))))
@@ -184,7 +186,7 @@
        (parent group-box-panel-wheel)
        (label "绘制点起始角")
        (horiz-margin 5)
-       (min-width 165)
+       (min-width 162)
        (stretchable-width #f) 
        (init-value (number->string (get-ap0)))))
 (define text-field-rw
@@ -192,7 +194,7 @@
        (parent group-box-panel-wheel)
        (label "滚轮半径")
        (horiz-margin 5)
-       (min-width 135)
+       (min-width 138)
        (stretchable-width #f) 
        (init-value (number->string (get-rw)))))
 (define text-field-rp
