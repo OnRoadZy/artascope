@@ -5,10 +5,10 @@
 
   (provide draw-artascope
            set-f-center
-           af0-v ap0-v
-           rf-v rw-v rp-v
-           step-aw-v
-           start-af-v end-af-v)
+           get-af0 set-af0 get-ap0 set-ap0
+           get-rf set-rf get-rw set-rw get-rp set-rp
+           get-step-aw set-step-aw
+           get-start-af set-start-af  get-end-af set-end-af)
 
   ;定义全局参数：
   (define f-center (cons 300 300))
@@ -22,38 +22,22 @@
   (define end-af 7720)
 
   ;设置/取得绘图全局参数：
-  (define af0-v
-    (case-lambda
-      [() af0]
-      [(a) (set! af0 a)]))
-  (define ap0-v
-    (case-lambda
-      [() ap0]
-      [(a) (set! ap0 a)]))
-  (define rf-v
-    (case-lambda
-      [() rf]
-      [(r) (set! rf r)]))
-  (define rw-v
-    (case-lambda
-      [() rw]
-      [(r) (set! rw r)]))
-  (define rp-v
-    (case-lambda
-      [() rp]
-      [(r) (set! rp r)]))
-  (define step-aw-v
-    (case-lambda
-      [() step-aw]
-      [(a) (set! step-aw a)]))
-  (define start-af-v
-    (case-lambda
-      [() start-af]
-      [(a) (set! start-af a)]))
-  (define end-af-v
-    (case-lambda
-      [()end-af]
-      [(a) (set! end-af a)]))
+  (define (get-af0) af0)
+  (define (set-af0 a) (set! af0 a))
+  (define (get-ap0) ap0)
+  (define (set-ap0 a) (set! ap0 a))
+  (define (get-rf) rf)
+  (define (set-rf r) (set! rf r))
+  (define (get-rw) rw)
+  (define (set-rw r) (set! rw r))
+  (define (get-rp) rp)
+  (define (set-rp r) (set! rp r))
+  (define (get-step-aw) step-aw)
+  (define (set-step-aw a) (set! step-aw a))
+  (define (get-start-af) start-af)
+  (define (set-start-af a) (set! start-af a))
+  (define (get-end-af) end-af)
+  (define (set-end-af a) (set! end-af a))
 
   ;取得绘图点的X、Y坐标：
   (define xp
