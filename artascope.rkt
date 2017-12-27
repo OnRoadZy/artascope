@@ -1,3 +1,6 @@
+;artascope.rkt
+;主程序：
+
 #lang racket
 (require racket/gui)
 (require racket/draw)

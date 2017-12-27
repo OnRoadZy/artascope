@@ -116,19 +116,34 @@
 (define button-draw
   (new button%
        [parent toolbar-general]
-       [label "画图"]
+       [label (list
+               (make-object bitmap% "pic/draw.png")
+               "画图"
+               'top)]
+       [min-width 64]
+       [min-height 64]
        [callback draw]))
 
 (define button-clear
   (new button%
        [parent toolbar-general]
-       [label "清空画布"]
+       [label (list (make-object bitmap%
+                "pic/clear.png")
+              "清空画布"
+              'top)]
+       [min-width 64]
+       [min-height 64]
        [callback clear]))
 
 (define button-help
   (new button%
        [parent toolbar-general]
-       [label "关于此程序"]
+       [label (list
+               (make-object bitmap% "pic/about.png")
+               "关于此程序"
+               'top)]
+       [min-width 64]
+       [min-height 64]
        [callback help]))
 
 ;;;定义绘图参数设置控件：=======================================================
@@ -221,12 +236,12 @@
        (label "画笔参数")
        (alignment (list 'right 'top))
        (stretchable-height #f)))
-(define combo-field-color
-  (new combo-field%
+(define choice-color
+  (new choice%
        (parent group-box-panel-pen)
        (label "&C颜色")
        (horiz-margin 5)
        (min-width 150)
        (stretchable-width #f)
-       (choices (list "黑色" "红色" "蓝色"))
-       (init-value "黑色")))
+       (choices (list "红色" "黑色" "蓝色"))
+       (selection 1)))
